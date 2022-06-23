@@ -13,6 +13,7 @@ const HeaderBlock = styled.header`
   justify-content: center;
   border-bottom: 1px solid #ddd;
   background-color: #ffffff;
+  z-index: 9999;
 `
 
 const LinkBlock = styled(Link)`

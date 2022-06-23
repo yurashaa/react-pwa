@@ -5,13 +5,11 @@ import {
     Route,
     Redirect
 } from 'react-router-dom';
-import {createMemoryHistory} from 'history';
 
 import { StaticPage } from "./containers/StaticPage";
 import { Header } from "./components/Header";
+import {RecordsPage} from "./containers/RecordsPage";
 import './App.css';
-
-const history = createMemoryHistory()
 
 function App() {
     return (
@@ -21,6 +19,10 @@ function App() {
                 <Switch>
                     <Route path='/static'>
                         <StaticPage/>
+                    </Route>
+
+                    <Route path='/records'>
+                        <RecordsPage />
                     </Route>
 
                     <Redirect from='*' to='/static' />
