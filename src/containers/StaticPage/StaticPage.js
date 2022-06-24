@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 import BackgroundImage from '../../assets/mountains.jpeg';
 import BlockImage from '../../assets/mountain-2.jpeg';
 
@@ -7,7 +7,6 @@ const HeroBlock = styled.div`
   background: url(${BackgroundImage}) no-repeat center center;
   background-size: cover;
   height: 100%;
-  //width: 100%;
   display: flex;
   align-items: center;
   padding-left: 3rem;
@@ -101,4 +100,4 @@ const StaticPage = () => {
     )
 }
 
-export { StaticPage }
+export { StaticPage };

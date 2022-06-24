@@ -6,15 +6,16 @@ import {
     Redirect
 } from 'react-router-dom';
 
-import { StaticPage } from "./containers/StaticPage";
-import { Header } from "./components/Header";
-import {RecordsPage} from "./containers/RecordsPage";
+import { StaticPage } from './containers/StaticPage';
+import { Header } from './components/Header'
+import { RecordsPage } from './containers/RecordsPage'
+import { FormPage } from './containers/FormPage'
 import './App.css';
 
 function App() {
     return (
         <BrowserRouter>
-            <div className="App">
+            <div className='App'>
                 <Header />
                 <Switch>
                     <Route path='/static'>
@@ -23,6 +24,10 @@ function App() {
 
                     <Route path='/records'>
                         <RecordsPage />
+                    </Route>
+
+                    <Route path='/form'>
+                        <FormPage />
                     </Route>
 
                     <Redirect from='*' to='/static' />

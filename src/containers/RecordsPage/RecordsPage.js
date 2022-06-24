@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import styled from "styled-components";
-import { Record } from "../../components/Record";
-import {Pagination} from "../../components/Pagination";
+import styled from 'styled-components';
+import { Record } from '../../components/Record';
+import { Pagination } from '../../components/Pagination';
 
 const Container = styled.div`
   width: 60%;
@@ -33,7 +33,7 @@ const RecordsPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
-            const data = await fetch(`https://api.unsplash.com/photos?page=${currentPage}`, {
+            const data = await fetch(`https://api.unsplash.com/photos?page=${currentPage+1}`, {
                 headers: {
                     'Authorization': `Client-ID ${process.env.REACT_APP_ACCESS_TOKEN}`
                 }
@@ -67,7 +67,12 @@ const RecordsPage = () => {
                     {
                         !isLoading && !error && !!records.length &&
                         <RecordsList>
-                            {records.map(record => <Record img={record.urls.small} href={record.urls.full}/>)}
+                            {records.map(record =>
+                                <Record
+                                    key={record.urls.small}
+                                    img={record.urls.small}
+                                    href={record.urls.full}/>
+                            )}
                         </RecordsList>
                     }
                 </>
@@ -76,4 +81,4 @@ const RecordsPage = () => {
     )
 }
 
-export { RecordsPage }
+export { RecordsPage };

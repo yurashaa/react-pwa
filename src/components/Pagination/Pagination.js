@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from "styled-components";
-import ReactPaginate from "react-paginate";
+import styled from 'styled-components';
+import ReactPaginate from 'react-paginate';
 
 const Paginate = styled(ReactPaginate)`
   list-style: none;
@@ -8,19 +8,20 @@ const Paginate = styled(ReactPaginate)`
   
   li {
     display: inline-block;
-    background-color: #ddd;
-    border-radius: 50%;
-    padding: 9px 15px;
-    cursor: pointer;
+
+    a {
+      background-color: #ddd;
+      padding: 9px 15px;
+      cursor: pointer;
+      transition: .3s;
+      
+      &:hover {
+        background-color: #eee;
+      }
+    }
     
     &:not(:last-child) {
       margin: 0 10px 10px 0;
-    }
-
-    transition: .3s;
-
-    &:hover {
-      background-color: #eee;
     }
   }
   
