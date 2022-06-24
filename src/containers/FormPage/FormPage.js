@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup'
-import {useYupResolver} from '../../hooks';
+import { useYupResolver } from '../../hooks';
+import { notify } from '../../helpers';
 
 const FormWrapper = styled.div`
   width: 30%;
@@ -63,7 +64,13 @@ const FormPage = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm({ resolver });
 
-    const submit = data => alert(JSON.stringify(data, null, 3));
+    const submit = data => {
+        createNotification(data)
+    }
+
+    const createNotification = (data) => {
+        notify({ title: 'Welcome', body: `Welcome onboard, ${data.username}` });
+    }
 
     return (
         <FormWrapper>
@@ -80,6 +87,7 @@ const FormPage = () => {
                 <FieldContainer>
                     <label htmlFor="password">Password</label>
                     <Input
+                        type='password'
                         placeholder='Password'
                         name='password' {...register('password', { required: true })}
                     />
@@ -88,6 +96,7 @@ const FormPage = () => {
                 <FieldContainer>
                     <label htmlFor="confirm-password">Confirm Password</label>
                     <Input
+                        type='password'
                         placeholder='Confirm password'
                         name='confirm-password' {...register('confirmPassword', { required: true })}
                     />

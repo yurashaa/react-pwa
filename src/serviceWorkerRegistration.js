@@ -90,6 +90,15 @@ function registerValidSW(swUrl, config) {
           }
         };
       };
+      // At this point asking user to give access for notifications
+      Notification.requestPermission()
+          .then(result => {
+            if (result === 'granted') {
+              console.log('Notifications are available')
+            } else {
+              console.log('Notifications not allowed')
+            }
+          })
     })
     .catch((error) => {
       console.error('Error during service worker registration:', error);
